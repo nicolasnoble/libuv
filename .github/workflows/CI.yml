@@ -10,8 +10,6 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {toolchain: Visual Studio 15 2017, arch: Win32, server: 2016}
-          - {toolchain: Visual Studio 15 2017, arch: x64, server: 2016}
           - {toolchain: Visual Studio 16 2019, arch: Win32, server: 2019}
           - {toolchain: Visual Studio 16 2019, arch: x64, server: 2019}
           - {toolchain: Visual Studio 17 2022, arch: Win32, server: 2022}
@@ -138,7 +136,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
-          path: build/**/*
+          path: build/uv_run_tests_a.exe
 
   test-mingw:
     runs-on: windows-${{ matrix.config.server }}
